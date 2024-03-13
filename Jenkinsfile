@@ -6,14 +6,12 @@ pipeline {
         // Define the tag you want to use for your Docker image
         DOCKER_TAG = 'latest'
     }
-    stages {
+stages {
         stage('Checkout') {
             steps {
-                // Change to match your repository. Make sure Jenkins has access to clone it.
-                git 'https://github.com/beyuneek/Comp-367-Lab-3.git'
+                checkout scm: [$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/beyuneek/Comp-367-Lab-3.git']]]
             }
-        }
-        stage('Build Maven Project') {
+        }        stage('Build Maven Project') {
             steps {
                 // Standard Maven build step. Assumes you have Maven set up in Jenkins.
                 sh 'mvn clean package'
