@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Change to match your repository. Make sure Jenkins has access to clone it.
-                git 'https://github.com/beyuneekschool/COMP367WelcomeApp.git'
+                git 'https://github.com/beyuneek/COMP367WelcomeApp.git'
             }
         }
         stage('Build Maven Project') {
